@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "frontend",
+			"path": "."
+		},
+		{
+			"name": "ai_thumbnail_generator",
+			"path": "D:/ai_thumbnail_generator"
+		}
+	],
+	"settings": {}
+}
