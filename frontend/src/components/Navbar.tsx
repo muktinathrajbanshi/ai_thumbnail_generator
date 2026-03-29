@@ -7,6 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate()
 
     return (
         <>
@@ -29,8 +30,8 @@ export default function Navbar() {
                     
                 </div>
 
-                <button className="hidden md:block px-6 py-2.5 bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all rounded-full">
-                    Start free trial
+                <button onClick={() => navigate("/login")} className="hidden md:block px-6 py-2.5 bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all rounded-full">
+                    Get Started
                 </button>
                 <button onClick={() => setIsOpen(true)} className="md:hidden">
                     <MenuIcon size={26} className="active:scale-90 transition" />
@@ -38,11 +39,12 @@ export default function Navbar() {
             </motion.nav>
 
             <div className={`fixed inset-0 z-100 bg-black/40 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 md:hidden transition-transform duration-400 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
-                {navlinks.map((link: INavLink) => (
-                    <NavLink key={link.name} to={link.href} onClick={() => setIsOpen(false)}>
-                        {link.name}
-                    </NavLink>
-                ))}
+                <Link to="/">Home</Link>
+                <Link to="/generate">Generate</Link>
+                <Link to="/my-generation">My Generations</Link>
+                <Link to="#">My Contact</Link>
+                <Link to="#">My Contact</Link>
+
                 <button onClick={() => setIsOpen(false)} className="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-pink-600 hover:bg-pink-700 transition text-white rounded-md flex">
                     <XIcon />
                 </button>
