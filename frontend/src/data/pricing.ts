@@ -19,13 +19,13 @@ export const pricingData: IPricing[] = [
         price: 79,
         period: "month",
         features: [
-            "Access to all Pro courses",
-            "Priority community support",
-            "30 practice projects",
-            "Course completion certificate",
-            "Advance code review",
-            "1-on-1 mentoring sessions",
-            "Job assistance"
+            "Unlimited AI Thumbnails",
+            "Premium Templates",
+            "4k Resolution",
+            "A/B Testing Tools",
+            "Priority Support",
+            "Custom Fonts",
+            "Brand Kit Analysis"
         ],
         mostPopular: true
     },
