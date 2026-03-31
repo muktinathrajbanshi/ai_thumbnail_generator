@@ -34,11 +34,11 @@ export const pricingData: IPricing[] = [
         price: 199,
         period: "month",
         features: [
-            "Access to all courses",
-            "Dedicated support",
-            "Unlimited projects",
-            "Course completion certificate",
-            "Premium code review"
+            "Everything in Pro",
+            "API Access",
+            "Team Collaboration",
+            "Custom Branding",
+            "Dedicated Account Manager"
         ],
         mostPopular: false
     }
