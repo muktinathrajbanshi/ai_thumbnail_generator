@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import SoftBackdrop from "../components/SoftBackdrop";
+import { button } from "motion/react-client";
 // import type  { IThumbnail } from "../assets/assets";
 
 const Generate = () => {
@@ -26,6 +27,20 @@ const Generate = () => {
                   <h2 className="text-xl font-bold text-zinc-100">Create Your Thumbnail</h2>
                   <p className="text-sm text-zinc-400">Describe your vision and let AI bring it to life</p>
                 </div>
+
+                <div className="space-y-5">
+
+                </div>
+
+                {/* Button  */}
+                {!id && (
+                  <button className="text-[15px] w-full py-3.5 rounded-xl font-medium bg-linear-to-b
+                  from-pink-500 to-pink-600 hover:from-pink-700 disabled:cursor-not-allowed 
+                  transition-colors">
+                    {loading ? "Generating..." : "Generate Thumbnail"}
+                  </button>
+                )}
+
               </div>
             </div>
             {/* Right Panel  */}
