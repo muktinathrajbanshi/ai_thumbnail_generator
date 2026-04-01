@@ -6,9 +6,9 @@ const AspectRatioSelector = ({value, onChange} : {value:
     AspectRatio; onChange: (ratio: AspectRatio) => void}) => {
 
     const iconMap = {
-        "16:9" : <RectangleHorizontal className="size-6">,
-        "1:1" : <Square className="size-6">,
-        "9:6" : <RectangleVertical className="size-6">,
+        "16:9" : <RectangleHorizontal className="size-6" />,
+        "1:1" : <Square className="size-6" />,
+        "9:6" : <RectangleVertical className="size-6" />,
     } as Record<AspectRatio, React.ReactNode>
 
   return (
