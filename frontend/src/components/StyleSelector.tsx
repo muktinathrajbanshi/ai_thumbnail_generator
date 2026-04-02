@@ -21,13 +21,21 @@ const StyleSelector = ({value, onChange, isOpen, setIsOpen} :
             "Tech/Futuristic" : <CpuIcon className="h-4 w-4" />,
         }
 
+
+
   return (
     <div className="relative space-y-3 dark">
       <label className="block text-sm font-medium text-zinc-200">Thumbnail Style</label>
 
-        <button>
+        <button type="button" onClick={() => setIsOpen(!isOpen)} className="flex w-full items-center
+        justify-between rounded-md border px-4 py-3 text-left transition bg-white/8 border-white/10
+        text-zinc-200 hover:bg-white/12">
             <div className="space-y-1">
-                {}
+                <div className="flex items-center gap-2 font-medium">
+                {styleIcons[value]}
+                <span>{value}</span>
+                </div>
+             <p className="text-xs text-zinc-400">{styleDescriptions[value]}</p>
             </div>
         </button>
 
