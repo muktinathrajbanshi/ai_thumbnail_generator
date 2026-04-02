@@ -1,3 +1,4 @@
+import { CpuIcon, ImageIcon, PenToolIcon, SparkleIcon, SquareIcon } from "lucide-react";
 import type { ThumbnailStyle } from "../assets/assets"
 
 const StyleSelector = ({value, onChange, isOpen, setIsOpen} : 
@@ -10,8 +11,14 @@ const StyleSelector = ({value, onChange, isOpen, setIsOpen} :
             "Photorealistic" : "Photo-based, natural looking",
             "Illustrated" : "Hand-drawn, artistic, creative",
             "Tech/Futuristic" : "Modern, sleek, tech-inspired",
+        }
 
-
+        const styleIcons: Record<ThumbnailStyle, React.ReactNode> = {
+            "Bold & Graphic" : <SparkleIcon className="h-4 w-4" />,
+            "Minimalist" : <SquareIcon className="h-4 w-4" />,
+            "Photorealistic" : <ImageIcon className="h-4 w-4" />,
+            "Illustrated" : <PenToolIcon className="h-4 w-4" />,
+            "Tech/Futuristic" : <CpuIcon className="h-4 w-4" />,
         }
 
   return (
