@@ -1,4 +1,4 @@
-import { CpuIcon, ImageIcon, PenToolIcon, SparkleIcon, SquareIcon } from "lucide-react";
+import { ChevronDownIcon, CpuIcon, ImageIcon, PenToolIcon, SparkleIcon, SquareIcon } from "lucide-react";
 import type { ThumbnailStyle } from "../assets/assets"
 
 const StyleSelector = ({value, onChange, isOpen, setIsOpen} : 
@@ -37,8 +37,8 @@ const StyleSelector = ({value, onChange, isOpen, setIsOpen} :
                 </div>
              <p className="text-xs text-zinc-400">{styleDescriptions[value]}</p>
             </div>
+            <ChevronDownIcon className={["h-5 w-5 text-zinc-400 transition-transform", isOpen && "rotate-180"].join(" ")} />
         </button>
-
 
     </div>
   )
