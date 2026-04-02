@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import SoftBackdrop from "../components/SoftBackdrop";
-import type { AspectRatio, IThumbnail } from "../assets/assets";
+import { colorSchemes, type AspectRatio, type IThumbnail, type ThumbnailStyle } from "../assets/assets";
 import AspectRatioSelector from "../components/AspectRatioSelector";
 
 const Generate = () => {
@@ -14,7 +14,10 @@ const Generate = () => {
   const [loading, setLoading] = useState(false)
 
   const [aspectRatio, setAspectRatio] = useState<AspectRatio>("16:9")
-  const [colorSchemeId, setColorSchemeId] = useState<string>()
+  const [colorSchemeId, setColorSchemeId] = useState<string>(colorSchemes[0].id)
+  const [style, setStyle] = useState<ThumbnailStyle>("Bold & Graphic")
+
+  const [styleDropdownOpen, setStyleDropdownOpen] = useState(false)
 
   
   return (
