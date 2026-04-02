@@ -48,7 +48,7 @@ const Generate = () => {
                   </div>
 
                   {/* AspectRatioSelector  */}
-                  <AspectRatioSelector />
+                  <AspectRatioSelector value={aspectRatio} onChange={setAspectRatio} />
                   {/* StyleSelector  */}
                   {/* ColorSchemeSelector  */}
 
