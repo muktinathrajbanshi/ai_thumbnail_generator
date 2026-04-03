@@ -50,7 +50,11 @@ const StyleSelector = ({value, onChange, isOpen, setIsOpen} :
                     onClick={() => {onChange(style); setIsOpen(false);}}
                     className="flex w-full items-start gap-3 px-4 py-3 text-left 
                     transition hover:bg-black/30">
-                        <div>{styleIcons[style]}</div>
+                        <div className="mt-0.5">{styleIcons[style]}</div>
+                        <div>
+                            <p className="font-medium">{style}</p>
+                            <p className="text-xs text-zinc-400">{styleDescriptions[style]}</p>
+                        </div>
                     </button>
                 ))}
             </div>
