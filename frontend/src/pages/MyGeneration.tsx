@@ -1,9 +1,10 @@
+import SoftBackdrop from "../components/SoftBackdrop";
 
 const MyGeneration = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+     <SoftBackdrop /> 
+    </>
   )
 }
 
