@@ -1,5 +1,6 @@
 import { ChevronDownIcon, CpuIcon, ImageIcon, PenToolIcon, SparkleIcon, SquareIcon } from "lucide-react";
-import type { ThumbnailStyle } from "../assets/assets"
+import { thumbnailStyles, type ThumbnailStyle } from "../assets/assets"
+import { button, div } from "motion/react-client";
 
 const StyleSelector = ({value, onChange, isOpen, setIsOpen} : 
     {value: ThumbnailStyle; onChange: (style: ThumbnailStyle) => void; 
@@ -40,6 +41,20 @@ const StyleSelector = ({value, onChange, isOpen, setIsOpen} :
             <ChevronDownIcon className={["h-5 w-5 text-zinc-400 transition-transform", isOpen && "rotate-180"].join(" ")} />
         </button>
 
+        {isOpen && (
+            <div className="absolute bottom-0 z-50 mt-1 w-full rounded-md border border-white/12
+             bg-black/20 backdrop-blur-3xl shadow-lg">
+                {thumbnailStyles.map((style) => (
+                    <button key={style}
+                    type="button"
+                    onClick={() => {onChange(style); setIsOpen(false);}}
+                    className="flex w-full items-start gap-3 px-4 py-3 text-left 
+                    transition hover:bg-black/30">
+                        <div>{styleIcons[style]}</div>
+                    </button>
+                ))}
+            </div>
+        )}
     </div>
   )
 }
