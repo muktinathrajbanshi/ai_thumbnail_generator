@@ -4,12 +4,12 @@ import SoftBackdrop from "../components/SoftBackdrop";
 
 const MyGeneration = () => {
 
-  const [thumbnails, setThumbnails] = useState<IThumbnail>([])
-  const [loading, setLoading] = useState(true)
+  const [thumbnails, setThumbnails] = useState<IThumbnail[]>([])
+  const [loading, setLoading] = useState(false)
 
   const fetchThumbnails = async () => {
     setThumbnails(dummyThumbnails as unknown as IThumbnail[])
-    // setLoading(false)
+    setLoading(false)
   }
 
   const handleDownload = (image_url: string) => {
@@ -40,6 +40,14 @@ const MyGeneration = () => {
           {Array.from({length: 6}).map((_, i) =>(
             <div key={i} className="rounded-2xl bg-white/6 border border-white/10 animate-pulse h-[260px]" />
           ))}
+        </div>
+      )}
+
+      {/* Empty State  */}
+      {!loading && thumbnails.length === 0 && (
+        <div className="text-center py-24">
+          <h3 className="text-lg font-semibold text-zinc-200">No thumbnails yet</h3>
+          <p className="text-sm text-zinc-400 mt-2">Generate your first thumbnail to see it here</p>
         </div>
       )}
      </div>
