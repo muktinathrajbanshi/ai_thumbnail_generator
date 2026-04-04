@@ -87,6 +87,11 @@ const MyGeneration = () => {
                   {thumb.isGenerating && <div className="absolute inset-0 bg-black/50
                   flex items-center justify-center text-sm font-medium text-white">Generating...</div>}
                 </div>
+
+                {/* Content  */}
+                <div className="p-4 space-y-2">
+                    <h3 className="text-sm font-semibold text-zinc-100 line-clamp-2">{thumb.title}</h3>
+                </div>
               </div>
             )
           })}
