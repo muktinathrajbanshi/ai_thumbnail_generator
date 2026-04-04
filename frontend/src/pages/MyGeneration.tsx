@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
+import { dummyThumbnails, type IThumbnail } from "../assets/assets";
 import SoftBackdrop from "../components/SoftBackdrop";
 
 const MyGeneration = () => {
+
+  const [thumbnails, setThumbnails] = useState<IThumbnail>([])
+  const [loading, setLoading] = useState(false)
+
+  const fetchThumbnails = async () => {
+    setThumbnails(dummyThumbnails as unknown as IThumbnail[])
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    fetchThumbnails()
+  },[])
+
   return (
     <>
      <SoftBackdrop /> 
