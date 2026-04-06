@@ -18,7 +18,26 @@ export const registerUser = async (req: Request, res: Response) => {
         // Encrypt the password 
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
-    } catch (error) {
-        
+
+        const newUser = new User({name, email, password: hashedPassword})
+        await newUser.save()
+
+        // setting user data in session 
+        req.session.isLoggedIn = true;
+        req.session.userId = newUser._id;
+
+        return res.json({
+            message: "Account created successfully",
+            user: {
+                _id: newUser._id,
+                name: newUser.name,
+                email: newUser.email
+            }
+        })
+
+
+    } catch (error: any) {
+        console.log(error);
+        res.status(500).json({message: error.message})
     }
 }
