@@ -41,3 +41,14 @@ export const registerUser = async (req: Request, res: Response) => {
         res.status(500).json({message: error.message})
     }
 }
+
+// Controllers For User Login 
+export const loginUser = async (req: Request, res: Response) => {
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: error.message})
+    }
+
+}
