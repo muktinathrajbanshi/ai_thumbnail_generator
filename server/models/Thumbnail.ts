@@ -47,10 +47,24 @@ const ThumbnailSchema = new mongoose.Schema<IThumbnail>(
         type: String,
         enum: ["vibrant", "sunset", "forest", "neon", "purple", "monochrome", "ocean", "pastel"]
     },
-    text_overlay?: boolean;
-    image_url?: string;
-    prompt_used?: string;
-    user_prompt?: string;
-    isGenerating?: boolean;
+    text_overlay: {
+        type: Boolean,
+        default: false
+    },
+    image_url: {
+        type: String,
+        default: ""
+    },
+    prompt_used: {
+        type: String
+    },
+
+    user_prompt: {
+        type: String
+    },
+    isGenerating: {
+        type: Boolean,
+        default: true
+    }
     }
 )
