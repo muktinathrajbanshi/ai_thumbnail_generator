@@ -6,4 +6,8 @@ const protect = async (req: Request, res: Response, next: NextFunction) => {
     if(!isLoggedIn || !userId) {
         return res.status(401).json({message: "You are not logged in"})
     }
+
+    next()
 }
+
+export default protect
