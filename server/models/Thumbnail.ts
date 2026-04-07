@@ -68,3 +68,7 @@ const ThumbnailSchema = new mongoose.Schema<IThumbnail>(
     }
     }
 )
+
+const Thumbnail = mongoose.models.Thumbnail || mongoose.model<IThumbnail>("Thumbnail", ThumbnailSchema)
+
+export default Thumbnail;
