@@ -16,3 +16,34 @@ export interface IThumbnail extends Document {
     createdAt?: Date;
     updatedAt?: Date;
 }
+
+const ThumbnailSchema = new mongoose.Schema<IThumbnail>(
+    {
+    userId: {
+        type: String, 
+        ref: "User", 
+        required: true
+    },
+    title: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    description: {
+        type: String,
+        trim: true``
+    },
+    style: {
+        type: String,
+        required: true,
+        enum: ["Bold & Graphic", "Tech/Futuristic", "Minimalist", "Photorealistic", "Illustrated"]
+    },
+    aspect_ratio?: "16:9" | "1:1" | "9:16";
+    color_scheme?: "vibrant" | "sunset" | "forest" | "neon" | "purple" | "monochrome" | "ocean" | "pastel";
+    text_overlay?: boolean;
+    image_url?: string;
+    prompt_used?: string;
+    user_prompt?: string;
+    isGenerating?: boolean;
+    }
+)
