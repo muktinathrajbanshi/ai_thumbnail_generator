@@ -31,15 +31,22 @@ const ThumbnailSchema = new mongoose.Schema<IThumbnail>(
     },
     description: {
         type: String,
-        trim: true``
+        trim: true
     },
     style: {
         type: String,
         required: true,
         enum: ["Bold & Graphic", "Tech/Futuristic", "Minimalist", "Photorealistic", "Illustrated"]
     },
-    aspect_ratio?: "16:9" | "1:1" | "9:16";
-    color_scheme?: "vibrant" | "sunset" | "forest" | "neon" | "purple" | "monochrome" | "ocean" | "pastel";
+    aspect_ratio: {
+        type: String,
+        enum: ["16:9", "1:1", "9:16"],
+        default: "16:9"
+    },
+    color_scheme: {
+        type: String,
+        enum: ["vibrant", "sunset", "forest", "neon", "purple", "monochrome", "ocean", "pastel"]
+    },
     text_overlay?: boolean;
     image_url?: string;
     prompt_used?: string;
