@@ -19,6 +19,7 @@ export const generateThumbnail = async (req: Request, res: Response) => {
                 text_overlay,
                 isGenerating: true
             })
+            
     } catch (error) {
         
     }
