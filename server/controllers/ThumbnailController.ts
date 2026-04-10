@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Thumbnail from "../models/Thumbnail.js";
-import { GenerateContentConfig } from "@google/genai";
+import { GenerateContentConfig, HarmBlockThreshold, HarmCategory } from "@google/genai";
 
 export const generateThumbnail = async (req: Request, res: Response) => {
     try {
@@ -33,7 +33,10 @@ export const generateThumbnail = async (req: Request, res: Response) => {
                     imageSize: "1K"
                 },
                 safetySettings: [
-                    
+                    { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.OFF},
+                    { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.OFF},
+                    { category: HarmCategory.HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT, threshold:HarmBlockThreshold.OFF},
+                    { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.OFF},
                 ]
             }
 
