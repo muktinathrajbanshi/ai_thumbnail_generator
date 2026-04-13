@@ -44,10 +44,19 @@ const Generate = () => {
       text_overlay: true,
     }
 
-    const {data} = await api.post("/api/thumbnail/generate", api_payload);
-    if(data.thumbnail) {
-      navigate("/generate/" + data.thumbnail._id);
-      toast.success(data.message)
+    try {
+      const {data} = await api.post("/api/thumbnail/generate", api_payload);
+      
+      if(data.thumbnail) {
+        navigate("/generate/" + data.thumbnail._id);
+        toast.success(data.message)
+      }
+      
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error?.response?.date?.message || "Generation failed");
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -65,12 +74,12 @@ const Generate = () => {
       : null;
 
       setThumbnail(fixedThumbnail as IThumbnail);
-      setLoading(!fixedThumbnail?.image_url);
-      setAdditionalDetails(fixedThumbnail?.user_prompt)
-      setTitle(fixedThumbnail?.title)
-      setColorSchemeId(fixedThumbnail?.color_scheme)
-      setAspectRatio(fixedThumbnail?.aspect_ratio)
-      setStyle(fixedThumbnail?.style)
+      setLoading(!fixedThumbnail?.image_url && true);
+      setAdditionalDetails(fixedThumbnail?.user_prompt || "")
+      setTitle(fixedThumbnail?.title || "")
+      setColorSchemeId(fixedThumbnail?.color_scheme || colorSchemes[0].id)
+      setAspectRatio(fixedThumbnail?.aspect_ratio || "16:9")
+      setStyle(fixedThumbnail?.style || "Bold & Graphic")
     } catch (error: any) {
       console.log(error);
       toast.error(error?.response?.data?.message || error.message)
