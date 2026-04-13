@@ -28,7 +28,10 @@ const colorSchemeDescriptions = {
 
 export const generateThumbnail = async (req: Request, res: Response) => {
     try {
-        const {userId} = req.session;
+        const userId = req.session?.userId;
+        if (!userId) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
         const {
             title, prompt: user_prompt, style, aspect_ratio, color_scheme,
             text_overlay } = req.body;
