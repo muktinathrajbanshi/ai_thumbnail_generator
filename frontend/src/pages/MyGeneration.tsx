@@ -36,8 +36,12 @@ const MyGeneration = () => {
   }
 
   const handleDownload = (image_url: string) => {
+    const secureUrl = image_url
+    .replace("http://", "https://")
+    .replace("/upload", "/upload/fl_attachment")
+
     const link = document.createElement("a");
-    link.href = image_url.replace("/upload", "/upload/fl_attachment")
+    link.href = secureUrl;
     document.body.appendChild(link);
     link.click()
     link.remove()
@@ -103,7 +107,7 @@ const MyGeneration = () => {
                 <div className={`relative overflow-hidden rounded-t-2xl 
                 ${aspectClass} bg-black`}>
                   {thumb.image_url ? (
-                  <img src={thumb.image_url} alt={thumb.title} className="w-full
+                  <img src={thumb.image_url?.replace("http://", "https://")} alt={thumb.title} className="w-full
                   h-full object-cover group-hover:scale-105 transition-transform
                   duration-300" />
                   ) : (
@@ -142,8 +146,8 @@ const MyGeneration = () => {
                     className="size-6 bg-black/50 p-1 rounded
                     hover:bg-pink-600 transition-all" />
 
-                    <Link target="_blank" to={`/preview?thumbnail_url=${thumb.
-                      image_url}&title=${thumb.title}`}>
+                    <Link target="_blank" to={`/preview?thumbnail_url?.replace("http://", "https://")
+                      }&title=${thumb.title}`}>
                         
                     <ArrowUpRightIcon className="size-6 bg-black/50 p-1 rounded
                     hover:bg-pink-600 transition-all" />
