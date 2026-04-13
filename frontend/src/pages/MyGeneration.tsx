@@ -142,8 +142,7 @@ const MyGeneration = () => {
                     className="size-6 bg-black/50 p-1 rounded
                     hover:bg-pink-600 transition-all" />
 
-                    <Link target="_blank" to={`/preview?thumbnail_url=${thumb.
-                      image_url}&title=${thumb.title}`}>
+                    <Link target="_blank" to={`/preview?thumbnail_url=${thumb.image_url}&title=${thumb.title}`}>
                         
                     <ArrowUpRightIcon className="size-6 bg-black/50 p-1 rounded
                     hover:bg-pink-600 transition-all" />
