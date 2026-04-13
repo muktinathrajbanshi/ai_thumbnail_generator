@@ -54,13 +54,23 @@ const Generate = () => {
   const fetchThumbnail = async () => {
     try {
       const { data } = await api.get(`/api/user/thumbnail/${id}`);
-      setThumbnail(data?.thumbnail as IThumbnail);
-      setLoading(!data?.thumbnail?.image_url);
-      setAdditionalDetails(data?.thumbnail?.user_prompt)
-      setTitle(data?.thumbnail?.title)
-      setColorSchemeId(data?.thumbnail?.color_scheme)
-      setAspectRatio(data?.thumbnail?.aspect_ratio)
-      setStyle(data?.thumbnail?.style)
+
+      const thumb = data?.thumbnail;
+
+      const fixedThumbnail =  thumb
+      ? {
+        ...thumb, 
+        image_url: thumb.image_url?.replace("http://", "https://"),
+        } 
+      : null;
+
+      setThumbnail(fixedThumbnail as IThumbnail);
+      setLoading(!fixedThumbnail?.image_url);
+      setAdditionalDetails(fixedThumbnail?.user_prompt)
+      setTitle(fixedThumbnail?.title)
+      setColorSchemeId(fixedThumbnail?.color_scheme)
+      setAspectRatio(fixedThumbnail?.aspect_ratio)
+      setStyle(fixedThumbnail?.style)
     } catch (error: any) {
       console.log(error);
       toast.error(error?.response?.data?.message || error.message)
